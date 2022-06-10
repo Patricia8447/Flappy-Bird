@@ -1,0 +1,210 @@
+/* 游戏盒子 */
+#gamebox {
+    /* 设置宽度 */
+    width: 480px;
+    /* 设置高度 */
+    height: 640px;
+    /* 设置边框 */
+    border: 1px solid #000;
+    /* 设置居中 */
+    /* margin: 50px auto; */
+    /* 设置背景图片 */
+    background-image: url(images/background.png);
+    /* 设置背景尺寸为容纳 */
+    background-size: contain;
+    /* 设置背景图片为不重复 */
+    background-repeat: no-repeat;
+    /* 子绝父相 */
+    position: relative;
+}
+
+/* 大地 */
+#land {
+    /* 设置宽度 */
+    width: 480px;
+    /* 设置高度 */
+    height: 80px;
+    /* 绝对定位 */
+    position: absolute;
+    /* 贴左边 */
+    left: 0;
+    /* 贴下边 */
+    bottom: 0;
+    /* 背景图片 */
+    background-image: url(images/ground.png);
+    /* 设备背景图片尺寸 */
+    background-size: auto 80px;
+}
+
+/* 定义动画 */
+@keyframes bgmove {
+
+    /* 从 */
+    from {
+        /* 背景定位是0、0 */
+        background-position: 0 0;
+    }
+    /* 到 */
+    to {
+        /* 背景定位是-100%、0 */
+        background-position: -100% 0;
+    }
+}
+
+#land {
+    /* 应用动画 */
+    animation: bgmove 3s linear infinite;
+}
+
+#land.stop {
+    animation: none;
+}
+
+/* 小鸟*/
+#bird {
+    /* 绝对定位 */
+    position: absolute;
+    /* 设置垂直的定位 */
+    top: 200px;
+    /* 设置水平的定位 */
+    left: 170px;
+    /* 宽度 */
+    width: 57px;
+    /* 高度 */
+    height: 40px;
+    /* 背景 */
+    background-image: url(images/bird.png);
+    /* 背景定位，使用精灵 */
+    background-position: -200% 0;
+}
+
+.pipeup {
+    width: 88px;
+    background-image: url(images/pipe2.png);
+    background-position: bottom left;
+    position: absolute;
+    top: 0;
+}
+
+.pipedown {
+    width: 88px;
+    background-image: url(images/pipe1.png);
+    position: absolute;
+}
+
+/* 遮罩盒子 */
+#cover {
+    /* 绝对定位 */
+    position: absolute;
+    /* top值，就是距离上边的距离 */
+    top: 0;
+    /* left值，就是距离左边的距离 */
+    left: 0;
+    /* 宽度是父盒子的100% */
+    width: 100%;
+    /* 高度是父盒子的100% */
+    height: 100%;
+    /* 背景颜色，由于是渐变色，CSS规定必须是background-image而不是background-color */
+    background-image: -webkit-radial-gradient(center center, rgba(168, 168, 168, 0.253), rgb(230, 230, 230));
+    /* 不出现 */
+    visibility: hidden;
+    /* 过渡 */
+    transition: all .4s linear 0s;
+}
+
+/* 工具盒子默认是不能被看见的 */
+#tool {
+    display: none;
+}
+
+/* 分数 */
+#score {
+    /* 绝对定位 */
+    position: absolute;
+    /* 宽度 */
+    width: 86px;
+    /* 高度 */
+    height: 114px;
+    /* 背景图片 */
+    background-image: url(images/score.png);
+    /* 让背景图片根据盒子的尺寸进行调整 */
+    background-size: contain;
+    /* 居中 */
+    left: 50%;
+    /* 拉回自己的宽度的一半 */
+    margin-left: -43px;
+    /* 设置一个合适的距顶部距离 */
+    top: 180px;
+    /* 设置堆叠顺序 */
+    z-index: 999;
+}
+
+/* 重玩按钮 */
+#restart {
+    /* 绝对定位 */
+    position: absolute;
+    /* 宽度 */
+    width: 107px;
+    /* 高度 */
+    height: 37.5px;
+    /* 居中 */
+    left: 50%;
+    /* 拉回自己的宽度的一半 */
+    margin-left: -53.5px;
+    /* 设置一个合适的距顶部距离 */
+    top: 400px;
+    /* 设置堆叠顺序 */
+    z-index: 999;
+    /* 鼠标碰上去是小手 */
+    cursor: pointer;
+}
+
+/* logo */
+#logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+/* 分数 */
+#mainScore {
+    font-family: 'Times New Roman', Times, serif;
+    /* 字号 */
+    font-size: 50px;
+    /* 不加粗 */
+    font-weight: normal;
+    /* 颜色 */
+    color: white;
+    /* 相对定位，设置相对定位的目的是：只有相对定位了，才能设置z-index属性值 */
+    position: relative;
+    /* 设置堆叠顺序 */
+    z-index: 9999;
+    /* 文字阴影 */
+    text-shadow: 2px 2px 2px black;
+    /* 居中 */
+    text-align: center;
+    /* 上外边距 */
+    margin-top: 80px;
+    /* 文本不能被选中 */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#score {
+    font-family: 'Times New Roman', Times, serif;
+    /* 字号 */
+    font-size: 20px;
+    /* 不加粗 */
+    font-weight: normal;
+    /* 颜色 */
+    color: white;
+    /* 相对定位，设置相对定位的目的是：只有相对定位了，才能设置z-index属性值 */
+    position: absolute;
+    text-align: center;
+}
+
+#s {
+    margin-top: 30px;
+}

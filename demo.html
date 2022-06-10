@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flappy Bird</title>
+    <link href="format.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+    <!-- 游戏盒子 -->
+    <div id="gamebox">
+        <!-- 小鸟 -->
+        <div id="bird"></div>
+        <!-- 大地 -->
+        <div id="land"></div>
+        <!-- 遮罩盒子,用来制作Gameover时,屏幕白一下 -->
+        <div id="cover"></div>
+
+        <!-- 工具盒子 -->
+        <div id="tool">
+            <img src="images/logo.png" id="logo">
+
+            <div id="score">
+                <p id="s"> 0 </p>
+                <p id="best"> 0 </p>
+            </div>
+            <!-- 重新开始游戏 -->
+            <button onclick="reloadPage()">
+                <img id="restart" src="images/restart.png" alt="">
+            </button>
+        </div>
+
+        <!-- 分数 -->
+        <div id="mainScore"> 0 </div>
+    </div>
+
+    <script src="js.js"></script>
+</body>
+
+</html>
